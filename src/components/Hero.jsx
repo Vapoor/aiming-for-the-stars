@@ -1,5 +1,4 @@
 import React from 'react'
-import imagePerso from '../assets/images/photoperso.jpg'
 const Hero = () => {
     const scrollToProjects = () => {
       document.getElementById('projets')?.scrollIntoView({ behavior: 'smooth' })
@@ -9,7 +8,6 @@ const Hero = () => {
       <section id="accueil" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 animate-pulse"></div>
         <div className="text-center z-10 max-w-4xl mx-auto px-4">
-          {/*<img src={imagePerso} alt="Kylian GAGNANT" className="w-80 h-80 rounded-full mx-auto mb-6 border-4 border-white/30 shadow-lg" />*/}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent animate-fade-in">
             GAGNANT Kylian
           </h1>

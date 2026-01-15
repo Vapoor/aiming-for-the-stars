@@ -7,6 +7,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 const ThreeViewer = ({ model, textures }) => {
   const mountRef = useRef(null)
+  const { baseColor, normal, roughness } = textures || {}
 
   useEffect(() => {
     const mount = mountRef.current
@@ -36,9 +37,9 @@ const ThreeViewer = ({ model, textures }) => {
     const loader = new OBJLoader()
     const texLoader = new THREE.TextureLoader()
 
-    const baseUrl = textures?.baseColor
-    const normalUrl = textures?.normal
-    const roughnessUrl = textures?.roughness
+    const baseUrl = baseColor
+    const normalUrl = normal
+    const roughnessUrl = roughness
 
     Promise.all([
       baseUrl ? texLoader.loadAsync(baseUrl) : Promise.resolve(null),
@@ -52,7 +53,6 @@ const ThreeViewer = ({ model, textures }) => {
         baseMap.minFilter = THREE.LinearMipmapLinearFilter
         baseMap.magFilter = THREE.LinearFilter
         baseMap.anisotropy = Math.min(4, maxAniso)
-        baseMap.encoding = THREE.sRGBEncoding
         baseMap.flipY = false
       }
       if (normalMap) {
@@ -60,7 +60,6 @@ const ThreeViewer = ({ model, textures }) => {
         normalMap.minFilter = THREE.LinearMipmapLinearFilter
         normalMap.magFilter = THREE.LinearFilter
         normalMap.anisotropy = Math.min(4, maxAniso)
-        normalMap.encoding = THREE.LinearEncoding
         normalMap.flipY = false
         normalMap.needsUpdate = true
       }
@@ -69,7 +68,6 @@ const ThreeViewer = ({ model, textures }) => {
         roughnessMap.minFilter = THREE.LinearMipmapLinearFilter
         roughnessMap.magFilter = THREE.LinearFilter
         roughnessMap.anisotropy = Math.min(4, maxAniso)
-        roughnessMap.encoding = THREE.LinearEncoding
         roughnessMap.flipY = false
         roughnessMap.needsUpdate = true
       }
@@ -147,7 +145,7 @@ const ThreeViewer = ({ model, textures }) => {
         mount.removeChild(renderer.domElement)
       }
     }
-  }, [model, JSON.stringify(textures)])
+  }, [model, baseColor, normal, roughness])
 
   return <div ref={mountRef} style={{ width: '100%', height: 420 }} />
 }
