@@ -22,7 +22,8 @@ const skillSections = [
     title: "Graphics & Engines",
     skills: [
       { name: "OpenGL", badge: "https://img.shields.io/badge/OpenGL-5586A4?logo=opengl&logoColor=white" },
-      { name: "Unreal Engine", badge: "https://img.shields.io/badge/Unreal%20Engine-0e1111?logo=unreal-engine&logoColor=white" }
+      { name: "Unreal Engine", badge: "https://img.shields.io/badge/Unreal%20Engine-0e1111?logo=unreal-engine&logoColor=white" },
+      { name: "Unity", badge: "https://img.shields.io/badge/Unity-000000?logo=unity&logoColor=white" }
     ]
   },
   {
@@ -41,12 +42,14 @@ const skillSections = [
   {
     title: "Tooling / DevOps",
     skills: [
+      { name: "Node.js", badge: "https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white" },
       { name: "Docker", badge: "https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" },
       { name: "Git", badge: "https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" },
       { name: "Subversion", badge: "https://img.shields.io/badge/Subversion-809CC9?logo=subversion&logoColor=white" },
       { name: "Linux", badge: "https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" },
       { name: "VS Code", badge: "https://img.shields.io/badge/VS%20Code-007ACC?logo=visualstudiocode&logoColor=white" },
-      { name: "VS Community", badge: "https://img.shields.io/badge/VS%20Community-5C2D91?logo=visual-studio&logoColor=white" }
+      { name: "VS Community", badge: "https://img.shields.io/badge/VS%20Community-5C2D91?logo=visual-studio&logoColor=white" },
+      { name: "CI/CD (GitHub Actions)", badge: "https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white" }
     ]
   }
 ]

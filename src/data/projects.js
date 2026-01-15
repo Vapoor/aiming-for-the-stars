@@ -32,11 +32,17 @@ export const projects = [
       description: "Expérience sonore et visuelle en VR",
       longDescription: "Exuvie est une expérience immersive en réalité virtuelle explorant la relation entre le son et l'espace. Utilisation d'Unreal Engine pour créer un environnement interactif où les utilisateurs peuvent manipuler leur propre Exuvie. En relation dans le cadre d'une exposition pour une artiste.",
       tech: ["C++", "Unreal Engine"],
-      image: "/",
+      image: "/src/assets/images/exuvie_main.png",
+      modelUrl: "/assets/exuvie.neutral.7kpoints.obj",
+      textures: {
+        baseColor: '/assets/textures/exuvie.basecolor.png',
+        normal: '/assets/textures/exuvie.normal.png',
+        roughness: '/assets/textures/exuvie.roughness.png'
+      },
       media: [
         {
           src: "/src/assets/images/exuvie_media1.png",
-          caption: "Représentation de l'Exuvie",
+          caption: "Représentation de l'Exuvie dans une salle sombre.",
           description: "Aperçu de l'Exuvie seule."
         }
       ],
@@ -49,7 +55,7 @@ export const projects = [
       description: "Amélioration de la qualité logicielle dans le cadre d'un projet de recherche",
       longDescription: "Travail sur la robustesse et la maintenabilité du code : refactorings, tests unitaires, CI et optimisation des performances pour le composant moteur.",
       tech: ["C++", "C", "Python"],
-      image: "/",
+      image: "/src/assets/images/voltige2_media1.png",
       media: [
         {
           src: "/src/assets/images/voltige2_media1.png",

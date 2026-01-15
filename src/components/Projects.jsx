@@ -24,13 +24,17 @@ const Projects = () => {
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((projet, index) => {
-            // get thumbnail src and alt (support string or object)
-            const thumb = (projet.media && projet.media[0])
-              ? (typeof projet.media[0] === 'string' ? projet.media[0] : projet.media[0].src)
-              : projet.image
-            const thumbAlt = (projet.media && projet.media[0] && typeof projet.media[0] !== 'string' && projet.media[0].caption)
-              ? projet.media[0].caption
-              : projet.titre
+            // prefer projet.image as the preview thumbnail, then fall back to first media item
+            const thumb = projet.image
+              ? projet.image
+              : (projet.media && projet.media[0]
+                  ? (typeof projet.media[0] === 'string' ? projet.media[0] : projet.media[0].src)
+                  : undefined)
+            const thumbAlt = projet.image
+              ? projet.titre
+              : (projet.media && projet.media[0] && typeof projet.media[0] !== 'string' && projet.media[0].caption
+                  ? projet.media[0].caption
+                  : projet.titre)
 
             return (
               <div
