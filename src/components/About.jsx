@@ -63,11 +63,11 @@ const About = () => (
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <p className="text-lg text-gray-300 leading-relaxed">
-            Je suis un développeur full-stack de 20 ans, intéressé depuis mon plus jeune âge dans l'informatique, actuellement en 3ème année BUT Informatique à la Falculté d'Arles.
+            Je suis un développeur full-stack de 20 ans, intéressé depuis mon plus jeune âge dans l'informatique, actuellement en 3ème année BUT Informatique à la Faculté d'Arles.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
             Je crée des applications, orienté sur la simplicité et l'efficacité. Je possède des bases solides dans différents langages (programmation comme oral).
-            J'ai impatience de pouvoir mettre mes compétences en pratique dans le monde professionnel.
+            J'ai hâte de pouvoir mettre mes compétences en pratique dans le monde professionnel.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
             En dehors de la programmation, je joue de manière compétitive à plusieurs jeux vidéos, la plupart d'entre eux en équipe. Cela m'a forgé un esprit compétitif au quotidien.
