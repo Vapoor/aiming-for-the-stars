@@ -187,25 +187,24 @@ const ModalContent = ({ project, onClose }) => {
     /(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)/i.test(src)
 
   const toYouTubeEmbed = (src) => {
-    if (!src) return src
-    const base = 'https://www.youtube-nocookie.com/embed/'
-    // youtu.be/<id>[?qs]
-    if (/youtu\.be\//i.test(src)) {
-      const id = src.split('/').pop().split('?')[0]
-      if (id) return `${base}${id}?rel=0&modestbranding=1`
-    }
-    // youtube.com/embed/<id>[?qs]
-    if (/youtube\.com\/embed\//i.test(src)) {
-      const path = src.split('/embed/')[1] || ''
-      const [id, qs] = path.split('?')
-      const suffix = qs ? `?${qs}` : '?rel=0&modestbranding=1'
-      if (id) return `${base}${id}${suffix}`
-    }
-    // youtube.com/watch?v=<id>[&...]
-    if (/youtube\.com\/watch/i.test(src)) {
-      const qs = src.split('?')[1] || ''
-      const id = new URLSearchParams(qs).get('v')
-      if (id) return `${base}${id}?rel=0&modestbranding=1`
+    try {
+      if (!/^https?:\/\//i.test(src)) return src
+      const url = new URL(src)
+      // youtu.be/<id>
+      if (url.hostname.includes('youtu.be')) {
+        const id = url.pathname.slice(1)
+        if (id) return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
+      }
+      // youtube.com/watch?v=<id> or /embed/<id>
+      if (url.hostname.includes('youtube.com')) {
+        if (url.pathname.startsWith('/embed/')) {
+          return `https://www.youtube-nocookie.com${url.pathname}${url.search ? url.search : '?rel=0&modestbranding=1'}`
+        }
+        const id = url.searchParams.get('v')
+        if (id) return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
+      }
+    } catch {
+      // If URL parsing fails, just return the original src
     }
     return src
   }
