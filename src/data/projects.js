@@ -2,7 +2,7 @@ export const projects = [
     {
       titre: "Cloud2Gether",
       description: "Ecoute partagée entre utilisateurs pour la plateforme Soundcloud",
-      longDescription: "Cloud2Gether permet à plusieurs utilisateurs d'écouter et synchroniser des pistes SoundCloud en temps réel. Implémentation d'authentification, sockets pour la synchronisation et UI responsive.",
+      longDescription: "Cloud2Gether permet à plusieurs utilisateurs d'écouter et synchroniser des pistes SoundCloud en temps réel. Implémentation d'authentification avec Auth 2.1, sockets pour la synchronisation et UI responsive.",
       tech: ["React", "Node.js"],
       image: "/src/assets/images/cloud2gether_main.png",
       // 3 media items (objects with src, caption, description)
@@ -41,9 +41,8 @@ export const projects = [
       },
       media: [
         {
-          src: "/src/assets/images/exuvie_media1.png",
-          caption: "Représentation de l'Exuvie dans une salle sombre.",
-          description: "Aperçu de l'Exuvie seule."
+          src: "https://youtu.be/OCYTpZjAT6M",
+          caption: "Ce projet est toujours en cours et loin d'être fini et poli, néanmoins, il m'a apprit beaucoup de fonctionnalités d'Unreal Engine 5.6.1, dont l'optimisation de meshs et recherche de performance"
         }
       ],
       githubUrl: "",

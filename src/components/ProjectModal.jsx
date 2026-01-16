@@ -171,6 +171,28 @@ const ModalContent = ({ project, onClose }) => {
   const mediaList = media.length ? media : fallback
 
   const isVideo = (src) => typeof src === 'string' && /\.(mp4|webm|ogg)(\?.*)?$/.test(src)
+  const isYouTube = (src) =>
+    typeof src === 'string' &&
+    /(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)/i.test(src)
+
+  const toYouTubeEmbed = (src) => {
+    try {
+      const url = new URL(src)
+      // youtu.be/<id>
+      if (url.hostname.includes('youtu.be')) {
+        return `https://www.youtube-nocookie.com/embed/${url.pathname.slice(1)}?rel=0&modestbranding=1`
+      }
+      // youtube.com/watch?v=<id>
+      if (url.hostname.includes('youtube.com')) {
+        if (url.pathname.startsWith('/embed/')) {
+          return `https://www.youtube-nocookie.com${url.pathname}${url.search ? url.search : '?rel=0&modestbranding=1'}`
+        }
+        const id = url.searchParams.get('v')
+        if (id) return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
+      }
+    } catch (_) {}
+    return src
+  }
 
   return (
     <div className="fixed inset-0 z-50">
@@ -213,7 +235,7 @@ const ModalContent = ({ project, onClose }) => {
             <ThreeViewer model={project.modelUrl} textures={project.textures} />
           ) : null}
 
-          {!project.modelUrl && mediaList.map((m, i) => (
+          {mediaList.map((m, i) => (
             <div key={i} className="space-y-3">
               {(m.caption || m.description) && (
                 <div className="text-base text-zinc-400">
@@ -222,11 +244,25 @@ const ModalContent = ({ project, onClose }) => {
                 </div>
               )}
 
-              <div className="rounded-lg overflow-hidden border border-zinc-800 bg-black flex justify-center items-center">
-                {isVideo(m.src) ? (
+              <div className="rounded-lg overflow-hidden border border-zinc-800 bg-black">
+                {isYouTube(m.src) ? (
+                  <div className="relative w-full pt-[56.25%]">
+                    <iframe
+                      title={m.caption || project.titre}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full"
+                      src={toYouTubeEmbed(m.src)}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+                ) : isVideo(m.src) ? (
                   <video
                     src={m.src}
                     controls
+                    preload="metadata"
+                    playsInline
                     className="w-full h-auto max-h-[60vh]"
                   />
                 ) : (
