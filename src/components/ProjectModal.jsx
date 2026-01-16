@@ -241,7 +241,7 @@ const ModalContent = ({ project, onClose }) => {
           {/* small note for 3D projects */}
           {project.modelUrl ? (
             <div className="text-sm text-zinc-400 italic mb-3">
-              Cette boite  affiche une prévisualisation en 3D. Cela peut prendre quelques secondes pour charger - Veuillez patientez quelques secondes.
+              Cette boite  affiche une prévisualisation en 3D. Cela peut prendre quelques secondes pour charger - Veuillez patientez.
             </div>
           ) : null}
 

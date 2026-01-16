@@ -30,8 +30,8 @@ export const projects = [
     {
       titre: "Exuvie",
       description: "Expérience sonore et visuelle en VR",
-      longDescription: "Exuvie est une expérience immersive en réalité virtuelle explorant la relation entre le son et l'espace. Utilisation d'Unreal Engine pour créer un environnement interactif où les utilisateurs peuvent manipuler leur propre Exuvie. En relation dans le cadre d'une exposition pour une artiste.",
-      tech: ["C++", "Unreal Engine"],
+      longDescription: "Exuvie est une expérience immersive en réalité virtuelle explorant la relation entre le son et l'espace. Utilisation d'Unreal Engine pour créer un environnement interactif où les utilisateurs peuvent manipuler leur propre Exuvie. Ce projet est en relation dans le cadre d'une future exposition pour une artiste.",
+      tech: ["C++", "Unreal Engine", "Blueprints"],
       image: "/assets/images/exuvie_main.png",
       modelUrl: "/assets/exuvie.neutral.7kpoints.obj",
       textures: {
@@ -42,7 +42,7 @@ export const projects = [
       media: [
         {
           src: "https://youtu.be/OCYTpZjAT6M",
-          caption: "Ce projet est toujours en cours et loin d'être fini et poli, néanmoins, il m'a apprit beaucoup de fonctionnalités d'Unreal Engine 5.6.1, dont l'optimisation de meshs et recherche de performance"
+          caption: "Ce projet est toujours en cours et loin d'être fini et poli. Néanmoins, il m'a apprit beaucoup de fonctionnalités d'Unreal Engine 5.6.1, dont l'optimisation de meshs et la recherche de performance."
         }
       ],
       githubUrl: "",
