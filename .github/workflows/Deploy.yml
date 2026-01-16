@@ -28,10 +28,14 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: site-dist
           path: dist
+      # Deploy using that artifact name
       - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: site-dist
