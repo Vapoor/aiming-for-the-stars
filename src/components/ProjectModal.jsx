@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
-import GitHubIcon from '../assets/icons/github.svg?react'
 import * as THREE from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
@@ -162,11 +161,24 @@ const ModalContent = ({ project, onClose }) => {
     }
   }, [onClose])
 
+  const resolveAsset = (p) => {
+    if (!p) return p
+    if (/^https?:\/\//i.test(p)) return p
+    // strip leading slashes and prefix with Vite base
+    return new URL(p.replace(/^\/+/, ''), import.meta.env.BASE_URL).toString()
+  }
+
   if (!project) return null
-  const raw = Array.isArray(project.media) ? project.media.slice(0, 3) : []
-  const media = raw.map(m => (typeof m === 'string' ? { src: m } : m))
-  const fallback = project.image ? [{ src: project.image }] : []
-  const mediaList = media.length ? media : fallback
+  const raw = Array.isArray(project.media) ? project.media.slice(0, 2) : []
+  const media = raw.map(m => {
+    const obj = typeof m === 'string' ? { src: m } : m
+    return { ...obj, src: resolveAsset(obj.src) }
+  })
+  const mediaList = []
+  if (project.image) mediaList.push({ src: resolveAsset(project.image) })
+  media.forEach(m => {
+    if (!mediaList.some(e => e.src === m.src)) mediaList.push(m)
+  })
 
   const isVideo = (src) => typeof src === 'string' && /\.(mp4|webm|ogg)(\?.*)?$/.test(src)
   const isYouTube = (src) =>
@@ -233,7 +245,14 @@ const ModalContent = ({ project, onClose }) => {
 
           {/* three.js viewer when modelUrl is present */}
           {project.modelUrl ? (
-            <ThreeViewer model={project.modelUrl} textures={project.textures} />
+            <ThreeViewer
+              model={resolveAsset(project.modelUrl)}
+              textures={{
+                baseColor: resolveAsset(project.textures?.baseColor),
+                normal: resolveAsset(project.textures?.normal),
+                roughness: resolveAsset(project.textures?.roughness)
+              }}
+            />
           ) : null}
 
           {mediaList.map((m, i) => (
@@ -298,10 +317,16 @@ const ModalContent = ({ project, onClose }) => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-zinc-800 hover:bg-zinc-700 text-sm"
             >
-               <GitHubIcon width={18} height={18} style={{ filter: 'invert(1)' }} />
+              <img
+                src={resolveAsset('/assets/icons/github.svg')}
+                alt="GitHub"
+                width={18}
+                height={18}
+                style={{ filter: 'invert(1)' }}
+              />
                <span>View on GitHub</span>
-             </a>
-           ) : null}
+            </a>
+          ) : null}
           {project.liveUrl ? (
             <a
               href={project.liveUrl}

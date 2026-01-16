@@ -28,7 +28,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      # Upload Pages artifact (must be exactly one per run)
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

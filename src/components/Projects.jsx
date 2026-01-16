@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { projects } from '../data/projects'
-import GitHubIcon from '../assets/icons/github.svg?react'
 import ProjectModal from './ProjectModal'
 
 const Projects = () => {
@@ -16,6 +15,12 @@ const Projects = () => {
     setSelected(null)
   }
 
+  const resolveAsset = (p) => {
+    if (!p) return p
+    if (/^https?:\/\//i.test(p)) return p
+    return new URL(p.replace(/^\/+/, ''), import.meta.env.BASE_URL).toString()
+  }
+
   return (
     <section id="projets" className="py-20 px-4 bg-black/20">
       <div className="max-w-6xl mx-auto">
@@ -24,11 +29,10 @@ const Projects = () => {
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((projet, index) => {
-            // prefer projet.image as the preview thumbnail, then fall back to first media item
             const thumb = projet.image
-              ? projet.image
+              ? resolveAsset(projet.image)
               : (projet.media && projet.media[0]
-                  ? (typeof projet.media[0] === 'string' ? projet.media[0] : projet.media[0].src)
+                  ? resolveAsset(typeof projet.media[0] === 'string' ? projet.media[0] : projet.media[0].src)
                   : undefined)
             const thumbAlt = projet.image
               ? projet.titre
@@ -82,7 +86,13 @@ const Projects = () => {
                       onClick={(e) => e.stopPropagation()}
                       className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors"
                     >
-                      <GitHubIcon width={24} height={24} style={{ filter: 'invert(1)'}} />
+                      <img
+                        src={resolveAsset('/assets/icons/github.svg')}
+                        alt="GitHub"
+                        width={24}
+                        height={24}
+                        style={{ filter: 'invert(1)' }}
+                      />
                       <span className="text-sm">Code</span>
                     </a>
                   )}
