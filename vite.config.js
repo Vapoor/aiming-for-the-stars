@@ -14,6 +14,7 @@ export default defineConfig({
   server: {
     port: 5175,
   },
+  base: '/aiming-for-the-stars/',
   test: {
     environment: 'jsdom',
     globals: true

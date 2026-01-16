@@ -1,6 +1,7 @@
 # Aiming for the stars
 
 [![CI](https://github.com/Vapoor/aiming-for-the-stars/actions/workflows/BuildCI.yml/badge.svg?branch=main)](https://github.com/Vapoor/aiming-for-the-stars/actions/workflows/BuildCI.yml)
+[![Deploy](https://github.com/Vapoor/aiming-for-the-stars/actions/workflows/Deploy.yml/badge.svg?branch=main)](https://github.com/Vapoor/aiming-for-the-stars/actions/workflows/Deploy.yml)
 
 This project is here to create my own portfolio, using React with `vite.js`.
 
