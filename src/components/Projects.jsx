@@ -18,7 +18,9 @@ const Projects = () => {
   const resolveAsset = (p) => {
     if (!p) return p
     if (/^https?:\/\//i.test(p)) return p
-    return new URL(p.replace(/^\/+/, ''), import.meta.env.BASE_URL).toString()
+    const base = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '')
+    const path = String(p).replace(/^\/+/, '')
+    return `${base}/${path}`
   }
 
   return (

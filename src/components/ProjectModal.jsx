@@ -164,20 +164,21 @@ const ModalContent = ({ project, onClose }) => {
   const resolveAsset = (p) => {
     if (!p) return p
     if (/^https?:\/\//i.test(p)) return p
-    // strip leading slashes and prefix with Vite base
-    return new URL(p.replace(/^\/+/, ''), import.meta.env.BASE_URL).toString()
+    const base = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '')
+    const path = String(p).replace(/^\/+/, '')
+    return `${base}/${path}`
   }
 
   if (!project) return null
   const raw = Array.isArray(project.media) ? project.media.slice(0, 2) : []
-  const media = raw.map(m => {
+  const media = raw.map((m) => {
     const obj = typeof m === 'string' ? { src: m } : m
     return { ...obj, src: resolveAsset(obj.src) }
   })
   const mediaList = []
   if (project.image) mediaList.push({ src: resolveAsset(project.image) })
-  media.forEach(m => {
-    if (!mediaList.some(e => e.src === m.src)) mediaList.push(m)
+  media.forEach((m) => {
+    if (!mediaList.some((e) => e.src === m.src)) mediaList.push(m)
   })
 
   const isVideo = (src) => typeof src === 'string' && /\.(mp4|webm|ogg)(\?.*)?$/.test(src)
@@ -250,7 +251,7 @@ const ModalContent = ({ project, onClose }) => {
               textures={{
                 baseColor: resolveAsset(project.textures?.baseColor),
                 normal: resolveAsset(project.textures?.normal),
-                roughness: resolveAsset(project.textures?.roughness)
+                roughness: resolveAsset(project.textures?.roughness),
               }}
             />
           ) : null}
