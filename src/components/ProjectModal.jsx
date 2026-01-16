@@ -178,7 +178,8 @@ const ModalContent = ({ project, onClose }) => {
       const url = new URL(src)
       // youtu.be/<id>
       if (url.hostname.includes('youtu.be')) {
-        return `https://www.youtube-nocookie.com/embed/${url.pathname.slice(1)}?rel=0&modestbranding=1`
+        const id = url.pathname.slice(1)
+        if (id) return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
       }
       // youtube.com/watch?v=<id>
       if (url.hostname.includes('youtube.com')) {
@@ -188,7 +189,9 @@ const ModalContent = ({ project, onClose }) => {
         const id = url.searchParams.get('v')
         if (id) return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
       }
-    } catch (_) {}
+    } catch {
+      return src
+    }
     return src
   }
 
