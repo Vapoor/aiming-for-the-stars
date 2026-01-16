@@ -30,7 +30,7 @@ export const projects = [
     {
       titre: "Exuvie",
       description: "Expérience sonore et visuelle en VR",
-      longDescription: "Exuvie est une expérience immersive en réalité virtuelle explorant la relation entre le son et l'espace. Utilisation d'Unreal Engine pour créer un environnement interactif où les utilisateurs peuvent manipuler leur propre Exuvie. Ce projet est en relation dans le cadre d'une future exposition pour une artiste.",
+      longDescription: "Exuvie est une expérience immersive en réalité virtuelle explorant la relation entre le son et l'espace. Utilisation d'Unreal Engine pour créer un environnement interactif où les utilisateurs peuvent manipuler leur propre Exuvie. Ce projet s'inscrit dans le cadre d'une future exposition pour une artiste.",
       tech: ["C++", "Unreal Engine", "Blueprints"],
       image: "/assets/images/exuvie_main.png",
       modelUrl: "/assets/exuvie.neutral.7kpoints.obj",
