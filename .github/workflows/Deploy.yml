@@ -22,14 +22,18 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - name: Download build artifact from BuildCI
+        uses: actions/download-artifact@v4
         with:
-          name: site-dist
-          path: ./dist
+          name: site-dist            
+          path: dist               
+          run-id: ${{ github.event.workflow_run.id }}
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
       - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
