@@ -58,19 +58,19 @@ const About = () => (
   <section id="apropos" className="py-20 px-4">
     <div className="max-w-6xl mx-auto">
       <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-        À propos
+        About Me
       </h2>
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <p className="text-lg text-gray-300 leading-relaxed">
-            Je suis un développeur full-stack de 20 ans, intéressé depuis mon plus jeune âge dans l'informatique, actuellement en 3ème année BUT Informatique à la Faculté d'Arles.
+            I am a 20-year-old full-stack developer, interested in computer science from a young age, currently in my third year of a Bachelor's degree in Computer Science at the Faculty of Arles.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
-            Je crée des applications, orienté sur la simplicité et l'efficacité. Je possède des bases solides dans différents langages (programmation comme oral).
-            J'ai hâte de pouvoir mettre mes compétences en pratique dans le monde professionnel.
+            I create applications focused on simplicity and efficiency. I have a solid foundation in various languages (both programming and spoken).
+            I look forward to applying my skills in a professional setting.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
-            En dehors de la programmation, je joue de manière compétitive à plusieurs jeux vidéos, la plupart d'entre eux en équipe. Cela m'a forgé un esprit compétitif au quotidien.
+            Outside of programming, I play several video games competitively, most of them in teams. This has helped me develop a competitive spirit in my daily life.
           </p>
         </div>
         <div className="space-y-6">

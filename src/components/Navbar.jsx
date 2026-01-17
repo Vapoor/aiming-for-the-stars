@@ -12,9 +12,9 @@ const Navbar = () => {
   }
 
   const navItems = [
-    { id: 'accueil', label: 'Accueil' },
-    { id: 'apropos', label: 'À propos' },
-    { id: 'projets', label: 'Projets' },
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' }
   ]
 

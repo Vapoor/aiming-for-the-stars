@@ -27,7 +27,7 @@ const Projects = () => {
     <section id="projets" className="py-20 px-4 bg-black/20">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-          Expériences et Projets
+          Experiences and Projects
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((projet, index) => {
@@ -62,11 +62,11 @@ const Projects = () => {
                   <div className="flex flex-wrap gap-2 mb-4">
                     {projet.professional ? (
                       <span className="px-2 py-1 rounded-full text-xs bg-red-600/20 text-red-300">
-                        Expérience pro
+                        Professional experience
                       </span>
                     ) : (
                       <span className="px-2 py-1 rounded-full text-xs bg-cyan-600/20 text-cyan-300">
-                        Projet Perso
+                        Personal Project
                       </span>
                     )}
 

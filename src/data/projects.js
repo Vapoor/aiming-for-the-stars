@@ -1,26 +1,26 @@
 export const projects = [
     {
       titre: "Cloud2Gether",
-      description: "Ecoute partagée entre utilisateurs pour la plateforme Soundcloud",
-      longDescription: "Cloud2Gether permet à plusieurs utilisateurs d'écouter et synchroniser des pistes SoundCloud en temps réel. Implémentation d'authentification avec Auth 2.1, sockets pour la synchronisation et UI responsive.",
+      description: "Shared listening between users for the SoundCloud platform",
+      longDescription: "Cloud2Gether allows multiple users to listen to and synchronize SoundCloud tracks in real time. Implemented authentication with OAuth 2.1, sockets for synchronization, and a responsive UI.",
       tech: ["React", "Node.js"],
       image: "/assets/images/cloud2gether_main.png",
       // 3 media items (objects with src, caption, description)
       media: [
         {
           src: "/assets/images/cloud2gether_media1.png",
-          caption: "Page principale",
-          description: "Vue principale montrant les différents éléments de l'interface."
+          caption: "Main page",
+          description: "Main view showing the different interface elements."
         },
         {
           src: "/assets/images/cloud2gether_media2.png",
-          caption: "Recherche dans les playlists de l'utilisateur",
-          description: "Permet une recherche simple et rapide des musiques déjà présentes dans les playlists propres à l'utilisateur."
+          caption: "Search within user's playlists",
+          description: "Allows quick and simple searching of tracks already present in the user's own playlists."
         },
         {
           src: "/assets/images/cloud2gether_media3.png",
-          caption: "Recherche avec barre de recherche",
-          description: "Permet une recherche avancée grâce à l'API de Soundcloud."
+          caption: "Search with search bar",
+          description: "Provides advanced search using the SoundCloud API."
         }
       ],
       githubUrl: "https://github.com/Vapoor/cloud2gether",
@@ -29,8 +29,8 @@ export const projects = [
     },
     {
       titre: "Exuvie",
-      description: "Expérience sonore et visuelle en VR",
-      longDescription: "Exuvie est une expérience immersive en réalité virtuelle explorant la relation entre le son et l'espace. Utilisation d'Unreal Engine pour créer un environnement interactif où les utilisateurs peuvent manipuler leur propre Exuvie. Ce projet s'inscrit dans le cadre d'une future exposition pour une artiste.",
+      description: "Sound and visual experience in VR",
+      longDescription: "Exuvie is an immersive virtual reality experience exploring the relationship between sound and space. Uses Unreal Engine to create an interactive environment where users can manipulate their own Exuvie. This project is part of a future exhibition for an artist.",
       tech: ["C++", "Unreal Engine", "Blueprints"],
       image: "/assets/images/exuvie_main.png",
       modelUrl: "/assets/exuvie.neutral.7kpoints.obj",
@@ -42,7 +42,7 @@ export const projects = [
       media: [
         {
           src: "https://youtu.be/OCYTpZjAT6M",
-          caption: "Ce projet est toujours en cours et loin d'être fini et poli. Néanmoins, il m'a apprit beaucoup de fonctionnalités d'Unreal Engine 5.6.1, dont l'optimisation de meshs et la recherche de performance."
+          caption: "This project is still in progress and far from finished and polished. Nevertheless, it taught me a lot about Unreal Engine 5.6.1 features, including mesh optimization and performance tuning."
         }
       ],
       githubUrl: "",
@@ -51,20 +51,20 @@ export const projects = [
     },
     {
       titre: "Voltige 2",
-      description: "Amélioration de la qualité logicielle dans le cadre d'un projet de recherche",
-      longDescription: "Travail sur la robustesse et la maintenabilité du code : refactorings, tests unitaires, CI et optimisation des performances pour le composant moteur.",
+      description: "Improving software quality within a research project",
+      longDescription: "Work on the robustness and maintainability of the code: refactorings, unit tests, CI, and performance optimization for the engine component.",
       tech: ["C++", "C", "Python"],
       image: "/assets/images/voltige2_media1.png",
       media: [
         {
           src: "/assets/images/voltige2_media1.png",
-          caption: "Représentation visuelle des recherches mathématiques",
-          description: "Visualiseur d'objets mathématiques en N dimensions, avec possibilités d'afficher différents calculs comme des distances maps."
+          caption: "Visual representation of mathematical research",
+          description: "Visualizer for mathematical objects in N dimensions, with options to display various computations like distance maps."
         },
         {
           src: "/assets/images/voltige2_media2.png",
-          caption: "Intégration de tests unitaires",
-          description: "Intégration de tests unitaires pour assurer la stabilité des fonctionnalités critiques, permettant la detection dans ce cas d'un calcul erroné suite à une modification du code."
+          caption: "Unit tests integration",
+          description: "Integration of unit tests to ensure the stability of critical features, enabling detection of an incorrect calculation following a code change."
         }
       ],
       githubUrl: "",

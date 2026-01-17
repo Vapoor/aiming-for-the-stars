@@ -12,13 +12,13 @@ const Hero = () => {
             GAGNANT Kylian
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-8 text-justify animate-slide-up">
-            Développeur passionné par la création d'expériences utilisateur innovantes et performantes.
+            A developer passionate about creating innovative and high-performing user experiences.
           </p>
           <button
             onClick={scrollToProjects}
             className="bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-full font-semibold hover:scale-105 transform transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25"
           >
-            Voir mes projets
+            Check my projects
           </button>
         </div>
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">

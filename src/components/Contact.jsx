@@ -26,7 +26,7 @@ const Contact = () => {
     {
       icon: GitHubIcon,
       title: "GitHub",
-      description: "Voir mes projets",
+      description: "Check my repositories",
       href: "https://github.com/Vapoor",
       color: "text-gray-400",
       isLucide: false
@@ -40,7 +40,7 @@ const Contact = () => {
           Contact
         </h2>
         <p className="text-xl text-gray-300 mb-12">
-          Une idée de projet ? N'hésitez pas à me contacter !
+          Have a project idea? Don't hesitate to contact me!
         </p>
         
         <div className="grid md:grid-cols-2 gap-8 mb-12 max-w-2xl mx-auto">
