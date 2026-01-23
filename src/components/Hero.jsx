@@ -1,7 +1,7 @@
 import React from 'react'
 const Hero = () => {
     const scrollToProjects = () => {
-      document.getElementById('projets')?.scrollIntoView({ behavior: 'smooth' })
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
     }
   
     return (
